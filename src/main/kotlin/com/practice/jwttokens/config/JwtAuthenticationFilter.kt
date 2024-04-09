@@ -43,7 +43,8 @@ constructor(
     }
 
     private fun updateContext(foundUser: UserDetails, request: HttpServletRequest) {
-        val authToken = UsernamePasswordAuthenticationToken(foundUser, null, foundUser.authorities)
+        val authToken = UsernamePasswordAuthenticationToken(foundUser, null,
+            foundUser.authorities)
         authToken.details = WebAuthenticationDetailsSource().buildDetails(request)
         SecurityContextHolder.getContext().authentication = authToken
     }

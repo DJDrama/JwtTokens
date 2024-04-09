@@ -21,7 +21,7 @@ class AuthController(
     @PostMapping("/refresh")
     fun refreshAccessToken(
         @RequestBody request: RefreshTokenRequest
-    ): TokenResponse = authenticationService.refreshAccessToken(request.token)
+    ): TokenResponse = authenticationService.refreshAccessToken(request.refreshToken)
         ?.mapToTokenResponse()
         ?: throw ResponseStatusException(HttpStatus.FORBIDDEN, "Invalid refresh token!")
 
